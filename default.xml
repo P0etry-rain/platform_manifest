@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
+<!--
   <remote  name="aosp"
            fetch=".."
            review="https://android-review.googlesource.com/" />
+-->
+
+  <!-- use tsinghua android repo as code base for china mainland users -->
+  <remote  name="aosp"
+           fetch="https://mirrors.tuna.tsinghua.edu.cn/git/AOSP"
+           review="https://android-review.googlesource.com/" />
+
+  <!-- ".." represents the same URL as that when repo init -->
+  <remote  name="aosp-riscv"
+           fetch=".."
+           review="" />
+
   <default revision="refs/tags/android-12.0.0_r3"
            remote="aosp"
            sync-j="4" />
@@ -11,7 +24,13 @@
   <superproject name="platform/superproject" remote="aosp" revision="android-12.0.0_r3" />
   <contactinfo bugurl="go/repo-bug" />
 
-  <project path="build/make" name="platform/build" groups="pdk" >
+  <!--
+      All projects impacted by riscv porting are flagged with remote attr set
+      as "aosp-riscv", plus revision set as the branch name for riscv porting.
+      For those projects we don't touch still have remote attr filled as
+      "aosp", so it will be downloaded from the default URL.
+  -->
+  <project path="build/make" name="platform_build" groups="pdk" remote="aosp-riscv" revision="riscv64-android-12.0.0_dev">
     <copyfile src="core/root.mk" dest="Makefile" />
     <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
     <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
@@ -27,10 +46,12 @@
   </project>
   <project path="build/blueprint" name="platform/build/blueprint" groups="pdk,tradefed" />
   <project path="build/pesto" name="platform/build/pesto" groups="pdk" />
-  <project path="build/soong" name="platform/build/soong" groups="pdk,tradefed" >
+  <project path="build/soong" name="platform_build_soong" groups="pdk,tradefed" remote="aosp-riscv" revision="riscv64-android-12.0.0_dev" >
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
+
+<!--
   <project path="art" name="platform/art" groups="pdk" />
   <project path="bionic" name="platform/bionic" groups="pdk" />
   <project path="bootable/recovery" name="platform/bootable/recovery" groups="pdk" />
@@ -1091,5 +1112,6 @@
   <project path="tools/trebuchet" name="platform/tools/trebuchet" groups="tools,cts,pdk,pdk-cw-fs,pdk-fs" />
 
   <repo-hooks in-project="platform/tools/repohooks" enabled-list="pre-upload" />
+-->
 
 </manifest>
