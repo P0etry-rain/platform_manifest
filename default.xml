@@ -10,7 +10,7 @@
   <!-- use tsinghua android repo as code base for china mainland users -->
   <remote  name="aosp"
            fetch="https://mirrors.tuna.tsinghua.edu.cn/git/AOSP"
-           review="https://android-review.googlesource.com/" />
+           review="" />
 
   <!-- ".." represents the same URL as that when repo init -->
   <remote  name="aosp-riscv"
