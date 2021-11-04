@@ -8,18 +8,22 @@
 -->
 
   <remote  name="aosp"
+           fetch="https://android.googlesource.com/"
+           review="https://android-review.googlesource.com/" />
+
+  <remote  name="aosp-riscv"
            fetch=".."
            review="https://android-review.googlesource.com/" />
+
   <default revision="master"
            remote="aosp"
            sync-j="4" />
 
   <!-- Core LLVM toolchain components -->
-  <project path="bionic" name="platform/bionic" />
+  <project path="bionic" name="platform_bionic" remote="aosp-riscv" revision="riscv64-llvm-toolchain" />
   <project path="toolchain/binutils" name="toolchain/binutils" />
-  <project path="toolchain/llvm-project" name="toolchain/llvm-project"
-           revision="master-legacy" />
-  <project path="toolchain/llvm_android" name="toolchain/llvm_android" />
+  <project path="toolchain/llvm-project" name="toolchain_llvm-project" remote="aosp-riscv" revision="riscv64-android-12.0.0_dev" />
+  <project path="toolchain/llvm_android" name="toolchain_llvm_android" remote="aosp-riscv" revision="riscv64-android-12.0.0_dev" />
 
   <!-- Android/ChromeOS shared toolchain-utils -->
   <project path="external/toolchain-utils" name="platform/external/toolchain-utils" revision="master" />
@@ -59,5 +63,5 @@
   <project path="prebuilts/clang/host/windows-x86" name="platform/prebuilts/clang/host/windows-x86" clone-depth="1" />
 
   <!-- NDK headers/libraries -->
-  <project path="toolchain/prebuilts/ndk/r23" name="toolchain/prebuilts/ndk/r23" />
+  <project path="toolchain/prebuilts/ndk/r23" name="toolchain_prebuilts_ndk_r23" remote="aosp-riscv" revision="riscv64-android-12.0.0_dev" />
 </manifest>
