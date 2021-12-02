@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-<!--
   <remote  name="aosp"
-           fetch=".."
+           fetch="https://android.googlesource.com"
            review="https://android-review.googlesource.com/" />
--->
 
   <!-- use tsinghua android repo as code base for china mainland users -->
+  <!--
   <remote  name="aosp"
            fetch="https://mirrors.tuna.tsinghua.edu.cn/git/AOSP"
            review="" />
+  -->
 
-  <!-- ".." represents the same URL as that when repo init -->
+  <!-- ".." represents the same URL as that when we run 'repo init'
+       for example, `repo init -u git@github.com:aosp-riscv/platform_manifest.git -b riscv64-android-12.0.0_dev`
+       then '..' represents "git@github.com:aosp-riscv"
+  -->
   <remote  name="aosp-riscv"
            fetch=".."
            review="" />
