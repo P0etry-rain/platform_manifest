@@ -42,7 +42,7 @@
     <linkfile src="target" dest="build/target" />
     <linkfile src="tools" dest="build/tools" />
   </project>
-  <project path="build/bazel" name="platform/build/bazel" groups="pdk" >
+  <project path="build/bazel" name="platform-build-bazel" groups="pdk" remote="aosp-riscv" revision="riscv64-android-12.0.0_dev">
     <linkfile src="bazel.WORKSPACE" dest="WORKSPACE" />
     <linkfile src="bazel.sh" dest="tools/bazel" />
     <linkfile src="bazel.BUILD" dest="BUILD" />
@@ -59,7 +59,7 @@
   <project path="bootable/recovery" name="platform/bootable/recovery" groups="pdk" />
   <project path="bootable/libbootloader" name="platform/bootable/libbootloader" groups="vts,pdk" />
   <project path="compatibility/cdd" name="platform/compatibility/cdd" groups="pdk" />
-  <project path="cts" name="platform/cts" groups="cts,pdk-cw-fs,pdk-fs" />
+  <project path="cts" name="platform-cts" groups="cts,pdk-cw-fs,pdk-fs" remote="aosp-riscv" revision="riscv64-android-12.0.0_dev" />
   <project path="dalvik" name="platform/dalvik" groups="pdk-cw-fs,pdk-fs" />
   <project path="developers/build" name="platform/developers/build" groups="developers,pdk" />
   <project path="developers/demos" name="platform/developers/demos" groups="developers" />
@@ -346,7 +346,7 @@
   <project path="external/libxml2" name="platform/external/libxml2" groups="pdk,libxml2" />
   <project path="external/libyuv" name="platform/external/libyuv" groups="pdk,libyuv" />
   <project path="external/linux-kselftest" name="platform/external/linux-kselftest" groups="vts,pdk" clone-depth="1" />
-  <project path="external/llvm" name="platform/external/llvm" groups="pdk" />
+  <project path="external/llvm" name="platform-external-llvm" groups="pdk" remote="aosp-riscv" revision="riscv64-android-12.0.0_dev" />
   <project path="external/lmfit" name="platform/external/lmfit" groups="pdk" />
   <project path="external/lottie" name="platform/external/lottie" groups="pdk" />
   <project path="external/lua" name="platform/external/lua" groups="pdk" />
@@ -691,7 +691,7 @@
   <project path="external/zstd" name="platform/external/zstd" groups="pdk" />
   <project path="external/zxing" name="platform/external/zxing" groups="pdk" />
   <project path="frameworks/av" name="platform_frameworks_av" groups="pdk" remote="aosp-riscv" revision="riscv64-android-12.0.0_dev" />
-  <project path="frameworks/base" name="platform/frameworks/base" groups="pdk-cw-fs,pdk-fs" />
+  <project path="frameworks/base" name="platform-frameworks-base" groups="pdk-cw-fs,pdk-fs" remote="aosp-riscv" revision="riscv64-android-12.0.0_dev" />
   <project path="frameworks/compile/libbcc" name="platform/frameworks/compile/libbcc" groups="pdk" />
   <project path="frameworks/compile/mclinker" name="platform/frameworks/compile/mclinker" groups="pdk" />
   <project path="frameworks/compile/slang" name="platform/frameworks/compile/slang" groups="pdk" />
@@ -894,7 +894,7 @@
   <project path="packages/inputmethods/LatinIME" name="platform/packages/inputmethods/LatinIME" groups="pdk-fs" />
   <project path="packages/inputmethods/LeanbackIME" name="platform/packages/inputmethods/LeanbackIME" groups="pdk-fs" />
   <project path="packages/modules/adb" name="platform/packages/modules/adb" groups="pdk" />
-  <project path="packages/modules/ArtPrebuilt" name="platform/packages/modules/ArtPrebuilt" groups="pdk" clone-depth="1" />
+  <project path="packages/modules/ArtPrebuilt" name="platform-packages-modules-ArtPrebuilt" groups="pdk" clone-depth="1" remote="aosp-riscv" revision="riscv64-android-12.0.0_dev" />
   <project path="packages/modules/BootPrebuilt/5.4/arm64" name="platform/packages/modules/BootPrebuilt/5.4/arm64" groups="pdk" clone-depth="1" />
   <project path="packages/modules/BootPrebuilt/5.10/arm64" name="platform/packages/modules/BootPrebuilt/5.10/arm64" groups="pdk" clone-depth="1" />
   <project path="packages/modules/CaptivePortalLogin" name="platform/packages/modules/CaptivePortalLogin" groups="pdk-cw-fs,pdk-fs" />
@@ -935,7 +935,7 @@
   <project path="packages/screensavers/PhotoTable" name="platform/packages/screensavers/PhotoTable" groups="pdk-fs" />
   <project path="packages/services/BuiltInPrintService" name="platform/packages/services/BuiltInPrintService" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/services/AlternativeNetworkAccess" name="platform/packages/services/AlternativeNetworkAccess" groups="pdk-cw-fs,pdk-fs" />
-  <project path="packages/services/Car" name="platform/packages/services/Car" groups="pdk-cw-fs,pdk-fs" />
+  <project path="packages/services/Car" name="platform-packages-services-Car" groups="pdk-cw-fs,pdk-fs" remote="aosp-riscv" revision="riscv64-android-12.0.0_dev" />
   <project path="packages/services/Iwlan" name="platform/packages/services/Iwlan" groups="pdk-cw-fs,pdk-fs"/>
   <project path="packages/services/Mms" name="platform/packages/services/Mms" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/services/Mtp" name="platform/packages/services/Mtp" groups="pdk-cw-fs,pdk-fs" />
@@ -958,7 +958,7 @@
   <project path="prebuilts/checkstyle" name="platform/prebuilts/checkstyle" groups="pdk" clone-depth="1" />
   <project path="prebuilts/clang-tools" name="platform/prebuilts/clang-tools" groups="pdk" clone-depth="1" />
   <project path="prebuilts/clang/host/darwin-x86" name="platform/prebuilts/clang/host/darwin-x86" groups="pdk,darwin" clone-depth="1" />
-  <project path="prebuilts/clang/host/linux-x86" name="platform/prebuilts/clang/host/linux-x86" groups="pdk" clone-depth="1" />
+  <project path="prebuilts/clang/host/linux-x86" name="platform-prebuilts-clang-host-linux-x86" groups="pdk" clone-depth="1" remote="aosp-riscv" revision="riscv64-android-12.0.0_dev" />
   <project path="prebuilts/cmdline-tools" name="platform/prebuilts/cmdline-tools" groups="pdk-fs" clone-depth="1" />
   <project path="prebuilts/devtools" name="platform/prebuilts/devtools" groups="pdk-fs" clone-depth="1" />
   <project path="prebuilts/fuchsia_sdk" name="platform/prebuilts/fuchsia_sdk" groups="pdk-fs" clone-depth="1" />
@@ -1000,7 +1000,7 @@
   <project path="prebuilts/python/linux-x86/2.7.5" name="platform/prebuilts/python/linux-x86/2.7.5" groups="linux,pdk,pdk-cw-fs,pdk-fs" clone-depth="1" />
   <project path="prebuilts/qemu-kernel" name="platform/prebuilts/qemu-kernel" groups="pdk" clone-depth="1" />
   <project path="prebuilts/remoteexecution-client" name="platform/prebuilts/remoteexecution-client" groups="pdk" clone-depth="1" />
-  <project path="prebuilts/runtime" name="platform/prebuilts/runtime" groups="pdk" clone-depth="1" />
+  <project path="prebuilts/runtime" name="platform-prebuilts-runtime" groups="pdk" clone-depth="1" remote="aosp-riscv" revision="riscv64-android-12.0.0_dev" />
   <project path="prebuilts/rust" name="platform/prebuilts/rust" groups="pdk" clone-depth="1" />
   <project path="prebuilts/r8" name="platform/prebuilts/r8" groups="pdk" clone-depth="1" />
   <project path="prebuilts/sdk" name="platform/prebuilts/sdk" groups="pdk" clone-depth="1" />
